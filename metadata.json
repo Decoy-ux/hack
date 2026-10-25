@@ -1,0 +1,6 @@
+{
+  "name": "Sarkari-Sewa: AI Governance Co-Pilot",
+  "description": "Automated document pre-scrutiny, anti-corruption SLA timer escalation, and voice-guided civic co-pilot eliminating middleman exploitation in Nepalese public administration.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
