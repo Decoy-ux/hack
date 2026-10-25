@@ -1,87 +1,86 @@
 # 🏛️ Sarkari-Sewa: AI Governance Co-Pilot (सरकारी सेवा: सुशासन सह-पाइलट)
 
-Eliminating Middleman (Bicholiya) Exploitation & Clerical Bottlenecks in Nepalese Public Administration Through Multimodal Document Pre-Scrutiny, Enforced Citizen Charter SLA Timers, and Dialect Voice Guidance.
-
-**Public GitHub Repository:** https://github.com/Decoy-ux/hack
-**Hackathon Challenge Submission:** AI Governance & Civic Technology Track
-**License:** Apache-2.0
+Eliminating middleman (bicholiya) exploitation and clerical bottlenecks in Nepalese public administration through multimodal document pre-scrutiny, enforced Citizen Charter SLA timers, and dialect-aware voice guidance.
 
 ---
 
-## 📌 Problem Statement
+## 📌 Project Overview
+Sarkari-Sewa is an automated civic ombudsman and governance co-pilot designed to modernize Nepalese administrative workflows. It bridges the digital divide for rural and marginalized citizens, ensuring transparent, fair, and timely public service delivery.
 
-### Who is Affected?
-Over 80% of Nepalese citizens—specifically daily-wage earners, rural farmers, marginalized communities, prospective migrant workers traveling from remote districts, and elderly citizens applying for:
-*   🪪 **Citizenship Certificates** (नागरिकता प्रमाणपत्र)
-*   🛂 **e-Passports** (राहदानी)
-*   📜 **Land Ownership Deeds** (मालपोत / लालपुर्जा)
-*   🚗 **Driving Licenses** (सवारी चालक अनुमतिपत्र)
-*   🆔 **National ID Cards** (राष्ट्रिय परिचयपत्र / NID)
-*   📄 **Ward Vital Event Records** (जन्म, विवाह दर्ता र सिफारिस)
+### The Problem
+- **Inefficiency:** Paper-based, opaque processes lead to arbitrary clerical rejections.
+- **Predatory Middlemen:** Unmonitored queues allow "bicholiya" (middlemen) to extort citizens for file clearance.
+- **Accessibility Barriers:** Lack of clear guidance and language support for non-literate citizens.
 
-### What Goes Wrong for Them?
-Government application procedures in Nepal are heavily paper-based, opaque, and unmonitored. When citizens travel long distances from rural villages to District Administration Offices (DAO) or Land Revenue Offices (Malpot), they wait in queues for days, only to face arbitrary clerical rejections at counters.
-
-These arbitrary rejections create a predatory vacuum where unauthorized middlemen (bicholiya) stationed outside office gates intercept desperate citizens and demand informal "file clearance fees" to grease palms and obtain signatures.
-
----
-
-## 💡 The Solution: Sarkari-Sewa Governance Co-Pilot
-
-Sarkari-Sewa is an automated civic ombudsman and governance co-pilot that permanently closes these bureaucratic loopholes through four integrated engines:
-
-1.  **Automated Forensic Document Pre-Scrutiny:** A computer vision and OCR engine that scans and verifies application files before citizens leave their village or submit at the counter. It flags missing stamps, blurred signatures, and paper defects, providing instant remediation.
-2.  **Cross-Document Discrepancy Matching:** Cross-analyzes secondary documents against citizenship records to catch Devanagari spelling nuances and date calculation errors. It automatically generates compliant petitions.
-3.  **Predictive SLA Timers & Anti-Corruption Escalator:** Binds every submitted application to statutory legal deadlines. If a file stalls past the legal deadline without documented cause, the system generates and dispatches a formal anti-corruption dossier to oversight authorities.
-4.  **Multilingual Dialect Voice Co-Pilot:** A voice-guided assistant fluent in local languages and dialects—Nepali, Maithili, Bhojpuri, and English—powering guidance for non-literate and rural citizens.
+### The Solution
+A four-pillar intelligent system that empowers citizens and ensures administrative accountability:
+1.  **AI Document Pre-Scrutiny:** Instant verification of documents *before* travel.
+2.  **SLA Enforcement:** Automated monitoring of legal processing timelines.
+3.  **Accountability Escalation:** Formal automated reporting of overdue files to oversight bodies.
+4.  **Bilingual AI Voice Guidance:** Multilingual assistance navigating bureaucratic requirements.
 
 ---
 
-## 🛠 Technology Stack
-- **Framework:** React SPA (Vite)
-- **Backend:** Express.js (Node.js)
-- **AI Core:** OpenRouter API (Accessing various open-source models for OCR, vision, and assistance)
-- **Styling:** Tailwind CSS
-- **Data Persistence:** In-memory FIFO queue with real-time SLA simulation
-- **Deployment:** Managed AI Studio environment
+## 🏗️ System Architecture
 
----
-
-## 🤖 How AI Powers Sarkari-Sewa (4 Core Execution Tasks)
-
-| AI Execution Task | Model & Technique | Specific Job Inside Product | Concrete Output |
-| :--- | :--- | :--- | :--- |
-| **1. Classifying & Extracting** | Open-Source Vision & OCR | Identifies document types, parses Devanagari script, extracts fields. | Structured digital JSON records. |
-| **2. Judging & Verifying** | Multimodal Vision Inspection | Evaluates authenticity, checks resolution, verifies government seals and signatures. | Pre-approval verdict, pinpointed rejection causes, legal remedies. |
-| **3. Predicting & Timing** | Predictive SLA Engine | Calculates processing durations, predicts delay risk, detects bottleneck desks. | Real-time SLA clock, middleman risk index, stall alerts. |
-| **4. Deciding & Escalating** | Automated Legal Routing Engine | Evaluates stalled files against governance acts, drafts formal petitions. | Automated RTI petitions, oversight authority dispatch letters, CIAA alerts. |
-
----
-
-## 🏛️ Legal & Constitutional Grounding (Nepal Law)
-
-Sarkari-Sewa's escalation engine is built upon:
-*   **Good Governance Act, 2064:** Mandatory adherence to the Public Citizen Charter and officer accountability for unlawful delay.
-*   **Right to Information Act, 2064:** Ensures the right to inspect and receive justification for pending administrative files.
-*   **Prevention of Corruption Act, 2059:** Penalties for intentional delay with corrupt intent.
-*   **Local Government Operation Act, 2074:** Standardized recommendation powers for vital events.
-
----
-
-## 🏗️ Architecture
+The application is structured for resilience, scalability, and auditability.
 
 ```mermaid
 graph TD
     A[Citizen Portal - React SPA] --> B[Express/Node.js Backend]
-    B --> C[OpenRouter API]
+    B --> C[OpenRouter API Gateway]
     C --> D[Open-Source LLMs - OCR/Vision/Escalation]
-    C --> E[TTS Model - Voice]
+    C --> E[TTS Model - Voice Guidance]
     B --> F[Government Dashboard]
+    B --> G[SLA & Queue Management Engine]
 ```
 
-## 💡 AI Usage Disclosure
-- **Document Vision:** `server.ts` (function: `app.post('/api/ocr/detect')`). Uses open-source models via OpenRouter to classify documents, extract structured data, and generate localized validation/guidance messages.
-- **AI Assistant:** `server.ts` (function: `app.post('/api/assistant/chat')`). Uses open-source models via OpenRouter to provide expert, context-aware bilingual assistance for administrative inquiries.
+### Core Components
+- **`CitizenPortal` (Frontend):** Step-by-step guidance, OCR document validation, and interactive checklist.
+- **`GovernmentDashboard` (Frontend):** FIFO queue management, SLA delay alerts, and escalation tracking.
+- **`OCR Engine` (Backend):** Multimodal document processing via OpenRouter.
+- **`Escalation Engine` (Backend):** Automated legal petition generation triggered by SLA breaches.
+- **`VoiceAssistant` (Component):** Bilingual (Nepali/English) interaction engine powered by TTS/STT APIs.
+
+---
+
+## ✨ Feature List
+
+| Feature | Description | Value Proposition |
+| :--- | :--- | :--- |
+| **Forensic Pre-Scrutiny** | AI-driven document validation. | Prevents travel for invalid/incomplete applications. |
+| **Personalized Remediation** | Step-by-step corrective actions for rejected files. | Empowers citizens to fix errors independently. |
+| **SLA Enforcement** | Automated timer for government services. | Ensures adherence to legal deadlines. |
+| **Anti-Corruption Escalator**| Auto-generation of formal RTI petitions for delays. | Holds civil servants accountable for stalls. |
+| **Multilingual Voice-Pilot** | Speech-to-text/Text-to-speech guidance. | Accessibility for non-literate/rural citizens. |
+| **Fee Truth Radar** | Compares official fees vs known market bribes. | Financial transparency, reducing extortion. |
+
+---
+
+## 🏛️ Legal & Constitutional Grounding
+
+Built upon prevailing Nepalese legislation:
+*   **Good Governance Act, 2064:** Mandatory adherence to the Citizen Charter.
+*   **Right to Information Act, 2064:** Right to written justification for delays.
+*   **Prevention of Corruption Act, 2059:** Penalties for intentional delays.
+*   **Local Government Operation Act, 2074:** Power for standardized recommendations.
+
+---
+
+## 🛠 Technology Stack
+- **Frontend:** React 19, Vite, Tailwind CSS, Lucide Icons, Framer Motion.
+- **Backend:** Node.js, Express.js.
+- **AI Core:** OpenRouter API (Accessing various open-source models).
+- **Voice/Speech:** Web Speech API.
+
+---
+
+## 🤖 How AI Powers Sarkari-Sewa
+
+The core logic uses **LLM-based reasoning** rather than just text generation:
+1.  **Reasoning over Evidence:** OCR extracts raw text; the LLM *reasons* about whether a specific citizen's document satisfies the constitutional/legal requirements for a specific application type.
+2.  **Dynamic Remediation:** If the `isValidForSelectedTask` flag is false, the model *reasons* about the mismatch to generate personalized diagnostic steps (What is wrong -> How to fix it).
+3.  **Automated Accountability:** The escalation engine *reasoning* dynamically drafts formal RTI petitions by parsing the specific administrative delay data point against the *Good Governance Act*.
 
 ---
 
@@ -92,21 +91,21 @@ graph TD
 - npm >= 9.0.0
 - An OpenRouter API key
 
-### 1. Clone & Install
+### 1. Installation
 ```bash
 git clone https://github.com/Decoy-ux/hack.git
 cd hack
 npm install
 ```
 
-### 2. Configure Environment Variables
+### 2. Configuration
 Create a `.env` file in the root directory:
 ```
 OPENROUTER_API_KEY="your-openrouter-api-key-here"
 PORT=3000
 ```
 
-### 3. Run Development Server
+### 3. Start Development
 ```bash
 npm run dev
 ```
