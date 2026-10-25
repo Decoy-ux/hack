@@ -1012,16 +1012,24 @@ What you can help with:
 
 User Query: "${message}"`;
 
-    if (process.env.GEMINI_API_KEY) {
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: systemPrompt,
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://sarkarisewa.gov.np',
+          'X-Title': 'Sarkari-Sewa AI Assistant'
+        },
+        body: JSON.stringify({
+          model: 'meta-llama/llama-3.1-8b-instruct',
+          messages: [{ role: 'user', content: systemPrompt }]
+        })
       });
 
-      if (response.text) {
-        return res.json({ success: true, reply: response.text });
+      const data = await response.json();
+      if (data.choices && data.choices[0] && data.choices[0].message) {
+        return res.json({ success: true, reply: data.choices[0].message.content });
       }
-    }
 
     // Fallback response if API key not set or offline
     const fallbackReply = lang === 'ne'
